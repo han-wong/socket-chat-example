@@ -5,7 +5,7 @@ import { dirname, join } from "node:path";
 import { Server } from "socket.io";
 
 const app = express();
-
+const port = process.env.PORT || 4000
 const server = createServer(app);
 const io = new Server(server);
 
