@@ -10,7 +10,7 @@ const io = new Server(server);
 
 app.use(
   cors({
-    origin: "http://example.com",
+    origin: process.env.HOSTS || "*",
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   })
 );
@@ -30,6 +30,7 @@ io.on("connection", (socket) => {
 
 server.listen(port, () => {
   console.log(`CORS-enabled web server listening on port ${port}`);
+  console.log(`HOSTS: ${process.env.HOSTS}`);
 });
 
 const html = `
