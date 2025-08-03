@@ -6,9 +6,17 @@ import { Server } from "socket.io";
 const app = express();
 const port = process.env.PORT || 4000;
 const server = createServer(app);
-const io = new Server(server);
 
-app.use(cors());
+const io = new Server(server, {
+  cors: {
+    origin: process.env.HOSTS || "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true,
+  },
+});
+
+// app.use(cors());
 
 app.get("/", (req, res) => res.type("html").send(html));
 
