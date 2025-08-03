@@ -2,23 +2,21 @@
    "name": "socket-chat-example",
    "version": "0.0.1",
    "description": "my first socket.io app",
-   "type": "module",
-   "scripts": {
-      "dev": "nodemon server.js && vite",
-      "build": "tsc && vite build",
-      "preview": "vite preview",
-      "server": "nodemon server.js"
-   },
+   "author": "han-wong",
    "dependencies": {
+      "cors": "^2.8.5",
       "express": "^5.0.0",
       "socket.io": "^4.8.1"
    },
    "devDependencies": {
-      "typescript": "~5.8.3",
-      "vite": "^7.0.6"
+      "nodemon": "^3.1.10"
    },
-   "main": "server.js",
-   "keywords": [],
-   "author": "",
-   "license": "ISC"
+   "license": "MIT",
+   "main": "app.js",
+   "private": false,
+   "scripts": {
+      "dev": "nodemon",
+      "start": "node app.js"
+   },
+   "type": "module"
 }
