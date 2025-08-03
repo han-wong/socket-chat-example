@@ -18,7 +18,7 @@ const io = new Server(server, {
 
 app.use(cors());
 
-app.use(() => {
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", process.env.HOSTS || "*");
 });
 
