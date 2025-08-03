@@ -8,12 +8,7 @@ const port = process.env.PORT || 4000;
 const server = createServer(app);
 const io = new Server(server);
 
-app.use(
-  cors({
-    origin: process.env.HOSTS || "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  })
-);
+app.use(cors());
 
 app.get("/", (req, res) => res.type("html").send(html));
 
