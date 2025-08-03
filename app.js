@@ -16,7 +16,11 @@ const io = new Server(server, {
   },
 });
 
-// app.use(cors());
+app.use(cors());
+
+app.use(() => {
+  res.setHeader("Access-Control-Allow-Origin", process.env.HOSTS || "*");
+});
 
 app.get("/", (req, res) => res.type("html").send(html));
 
