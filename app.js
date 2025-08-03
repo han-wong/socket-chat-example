@@ -7,14 +7,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 const server = createServer(app);
 
-const io = new Server(server, {
-  cors: {
-    origin: process.env.HOSTS || "*",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true,
-  },
-});
+const io = new Server(server);
 
 app.use(cors());
 
