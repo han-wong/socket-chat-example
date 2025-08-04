@@ -7,7 +7,12 @@ import { fileURLToPath } from "node:url";
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: process.env.HOSTS || "*",
+    methods: ["GET", "POST"],
+  },
+});
 
 const port = process.env.PORT || 3000;
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -19,11 +24,10 @@ app.get("/", (req, res) => {
 });
 
 app.use((req, res, next) => {
-  console.log(res)
+  console.log(res);
   res.setHeader("Access-Control-Allow-Origin", process.env.HOSTS || "*");
-  console.log(res)
+  console.log(res);
 });
-
 
 // const publicDirectoryPath = path.join(
 //   new URL(".", import.meta.url).pathname.substring(1)
