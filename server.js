@@ -19,10 +19,11 @@ app.get("/", (req, res) => {
 });
 
 app.use((req, res, next) => {
+  console.log(res)
   res.setHeader("Access-Control-Allow-Origin", process.env.HOSTS || "*");
+  console.log(res)
 });
 
-// console.log(path)
 
 // const publicDirectoryPath = path.join(
 //   new URL(".", import.meta.url).pathname.substring(1)
