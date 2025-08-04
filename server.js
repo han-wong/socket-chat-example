@@ -23,24 +23,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.use((req, res, next) => {
-  console.log(res);
-  res.setHeader("Access-Control-Allow-Origin", process.env.HOSTS || "*");
-  console.log(res);
-});
-
-// const publicDirectoryPath = path.join(
-//   new URL(".", import.meta.url).pathname.substring(1)
-// );
-
-// app.use(express.static(publicDirectoryPath));
-
-// app.get("*", (req, res) => {
-//   const indexPath = path.resolve(publicDirectoryPath, "index.html");
-//   res.sendFile(indexPath);
-//   // res.type("html").send(html)
-// });
-
 io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("chat message", (msg) => {
